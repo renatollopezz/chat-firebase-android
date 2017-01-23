@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">ChatAndroidFirebase</string>
+    <string name="button_logar">Entrar</string>
+    <string name="button_cadastrar">Cadastrar</string>
+    <string name="info_validacao">Confirmação</string>
+    <string name="info_conficar_numero">Dentro de alguns minutos você recebera um código de confirmação, para que seu número seja confirmado, insira o código a baixo.</string>
+    <string name="button_confirmar">Confirmar</string>
+    <string name="info_link_registrar">Não possui uma conta? cadastre-se agora!</string>
+</resources>
