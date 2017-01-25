@@ -66,6 +66,7 @@
         android:textSize="@dimen/text_pequeno"
         android:textColor="@color/textColorPrimary"
         android:layout_alignParentBottom="true"
+        android:onClick="cadastrarUsuario"
         android:layout_centerHorizontal="true" />
 
 </RelativeLayout>

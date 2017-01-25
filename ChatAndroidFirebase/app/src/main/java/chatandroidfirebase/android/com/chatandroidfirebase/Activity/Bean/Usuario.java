@@ -7,6 +7,7 @@ package chatandroidfirebase.android.com.chatandroidfirebase.Activity.Bean;
 public class Usuario {
     public String idUsuario;
     public String txNome;
+    public String txEmail;
 
     public String getIdUsuario() {
         return idUsuario;
@@ -32,5 +33,5 @@ public class Usuario {
         this.txEmail = txEmail;
     }
 
-    public String txEmail;
+
 }

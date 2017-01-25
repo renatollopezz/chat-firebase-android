@@ -2,6 +2,7 @@ package chatandroidfirebase.android.com.chatandroidfirebase.Activity;
 
 import android.Manifest;
 import android.app.Activity;
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
@@ -45,12 +46,7 @@ public class LoginActivity extends AppCompatActivity{
             }
 
             });
-        btnCadastrar.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Toast.makeText(getApplicationContext(),"Click",Toast.LENGTH_SHORT).show();
-            }
-        });
+
     }
 
 
@@ -63,7 +59,12 @@ public class LoginActivity extends AppCompatActivity{
     }
     public void logarUsuario(){
         login.logar(edtEmail.getText().toString(),edtSenha.getText().toString());
+    }
 
+    public void cadastrarUsuario(View view){
+        Intent intent = new Intent(LoginActivity.this,CadastroActivity.class);
+        startActivity(intent);
+        finish();
     }
 
 
