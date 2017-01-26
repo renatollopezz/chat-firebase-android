@@ -81,4 +81,14 @@ public class FirebaseLogin {
         });
     }
 
+
+    public Boolean verificarLogado(){
+        FirebaseUser firebaseUser = auth.getCurrentUser();
+        if (firebaseUser != null){
+            return true;
+        }else{
+            return false;
+        }
+    }
+
 }

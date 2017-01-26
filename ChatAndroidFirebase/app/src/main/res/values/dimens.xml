@@ -6,4 +6,6 @@
     <dimen name="logo_altura">170dp</dimen>
     <dimen name="text_medio">30dp</dimen>
     <dimen name="text_pequeno">15dp</dimen>
+    <dimen name="elevation_toolbar">5dp</dimen>
+
 </resources>

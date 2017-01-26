@@ -67,5 +67,13 @@ public class LoginActivity extends AppCompatActivity{
         finish();
     }
 
-
+    @Override
+    protected void onStart() {
+        super.onStart();
+        if(login.verificarLogado()){
+            Intent intent = new Intent(this,MainActivity.class);
+            startActivity(intent);
+            finish();
+        }
+    }
 }
