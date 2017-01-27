@@ -1,5 +1,6 @@
 package chatandroidfirebase.android.com.chatandroidfirebase.Activity;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
@@ -10,16 +11,20 @@ import android.view.MenuItem;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.FirebaseDatabase;
 
+import chatandroidfirebase.android.com.chatandroidfirebase.Activity.Firebase.FirebaseLogin;
 import chatandroidfirebase.android.com.chatandroidfirebase.R;
 
 public class MainActivity extends AppCompatActivity {
     //components
     private Toolbar toolbar;
+    //firebase
+    private FirebaseLogin firebaseLogin;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        firebaseLogin = new FirebaseLogin(this);
         initComponents();
     }
 
@@ -39,6 +44,16 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        return super.onOptionsItemSelected(item);
+        switch (item.getItemId()){
+            case R.id.item_sair :
+             firebaseLogin.sair();
+                Intent intent = new Intent(this,LoginActivity.class);
+                startActivity(intent);
+                finish();
+                return true;
+
+            default:
+                return super.onOptionsItemSelected(item);
+        }
     }
 }

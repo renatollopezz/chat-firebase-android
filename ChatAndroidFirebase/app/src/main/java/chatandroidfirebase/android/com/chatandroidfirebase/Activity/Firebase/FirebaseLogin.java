@@ -32,6 +32,8 @@ public class FirebaseLogin {
         this.auth = FirebaseAuth.getInstance();
     }
 
+
+
     public void logar(String email,String senha){
 
         auth.signInWithEmailAndPassword(email,senha).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
@@ -52,6 +54,11 @@ public class FirebaseLogin {
             }
         });
 
+
+    }
+
+    public void sair(){
+        auth.signOut();
 
     }
 
