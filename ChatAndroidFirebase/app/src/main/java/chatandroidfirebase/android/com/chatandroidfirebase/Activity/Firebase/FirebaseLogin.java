@@ -27,7 +27,7 @@ public class FirebaseLogin {
     private Context context;
     FirebaseAuth auth;
 
-    public FirebaseLogin(Activity context){
+    public FirebaseLogin(Context context){
         this.context = context;
         this.auth = FirebaseAuth.getInstance();
     }
@@ -62,8 +62,7 @@ public class FirebaseLogin {
 
     }
 
-
-    public void cadastrar(final String email, String senha, final String nome){
+    public void cadastrar(final String email,final String senha, final String nome){
 
         auth.createUserWithEmailAndPassword(email,senha).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
             @Override
@@ -74,12 +73,13 @@ public class FirebaseLogin {
                     usuario.setIdUsuario(user.getUid().toString());
                     usuario.setTxEmail(email);
                     usuario.setTxNome(nome);
+                    FirebaseUsuario firebaseUsuario = new FirebaseUsuario(context);
+                    firebaseUsuario.cadastrarUsuairo(usuario);
                     Activity ac = (Activity) context;
                     Toast toast = Toast.makeText(ac,"Conta criada com sucesso!",Toast.LENGTH_SHORT);
                     toast.show();
                 }else {
                     Activity ac = (Activity) context;
-                    Log.i("Retorno erro",task.getException().getMessage());
                     Toast toast = Toast.makeText(ac,task.getException().getMessage(),Toast.LENGTH_SHORT);
                     toast.show();
                     }
@@ -87,7 +87,6 @@ public class FirebaseLogin {
             }
         });
     }
-
 
     public Boolean verificarLogado(){
         FirebaseUser firebaseUser = auth.getCurrentUser();

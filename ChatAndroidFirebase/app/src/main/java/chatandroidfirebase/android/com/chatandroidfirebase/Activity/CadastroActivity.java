@@ -7,7 +7,9 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import chatandroidfirebase.android.com.chatandroidfirebase.Activity.Bean.Usuario;
 import chatandroidfirebase.android.com.chatandroidfirebase.Activity.Firebase.FirebaseLogin;
+import chatandroidfirebase.android.com.chatandroidfirebase.Activity.Firebase.FirebaseUsuario;
 import chatandroidfirebase.android.com.chatandroidfirebase.R;
 
 public class CadastroActivity extends AppCompatActivity {
@@ -38,10 +40,11 @@ public class CadastroActivity extends AppCompatActivity {
             String email = edtEmail.getText().toString();
             String nome = edtNome.getText().toString();
             String senha = edtSenha.getText().toString();
-            if (!email.isEmpty() && !senha.isEmpty()){
-                criarConta.cadastrar(email,nome,senha);
+            if (!email.isEmpty() && !senha.isEmpty() && !nome.isEmpty()){
+                criarConta.cadastrar(email,senha,nome);
+
             }else{
-                Toast toast = Toast.makeText(getApplicationContext(),"Campos Email e Senha, não podem ser vazios!",Toast.LENGTH_SHORT);
+                Toast toast = Toast.makeText(getApplicationContext(),"Não pode haver campo vazio!",Toast.LENGTH_SHORT);
                 toast.show();
             }
         }catch (Exception exp){
