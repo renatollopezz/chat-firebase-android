@@ -26,6 +26,7 @@ public class FirebaseUsuario {
     private Alerta alerta;
     private Context context;
     private FirebaseAuth auth;
+    private DatabaseReference reference;
 
     private FirebaseDatabase firebaseDatabase;
 
@@ -33,6 +34,7 @@ public class FirebaseUsuario {
         this.context = context;
         this.auth = FirebaseAuth.getInstance();
         this.firebaseDatabase = FirebaseDatabase.getInstance();
+        this.reference = firebaseDatabase.getReference();
     }
 
     public void cadastrarUsuairo(Usuario usuario){
@@ -42,25 +44,7 @@ public class FirebaseUsuario {
     }
 
     public void buscarUsuarioEmail(String email){
-        FirebaseUser u = auth.getCurrentUser();
 
-        DatabaseReference reference = firebaseDatabase.getReference();
-        reference.child("Usuarios").addListenerForSingleValueEvent(new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                List<Usuario> usuarios = new ArrayList<>();
-
-                for (DataSnapshot retornoSnap : dataSnapshot.getChildren()){
-                    Log.i("RETORNO SNAP",retornoSnap.toString());
-                    usuarios.add(retornoSnap.getValue(Usuario.class));
-                }
-            }
-
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
-
-            }
-        });
 
     }
 

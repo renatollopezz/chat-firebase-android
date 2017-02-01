@@ -16,6 +16,7 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.FirebaseDatabase;
 
 import chatandroidfirebase.android.com.chatandroidfirebase.Activity.Adapter.TabelaAdapter;
+import chatandroidfirebase.android.com.chatandroidfirebase.Activity.Firebase.FirebaseContato;
 import chatandroidfirebase.android.com.chatandroidfirebase.Activity.Firebase.FirebaseLogin;
 import chatandroidfirebase.android.com.chatandroidfirebase.Activity.Firebase.FirebaseUsuario;
 import chatandroidfirebase.android.com.chatandroidfirebase.Activity.Ultis.SlidingTabLayout;
@@ -84,8 +85,8 @@ public class MainActivity extends AppCompatActivity {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         if (!campoEmail.getText().toString().isEmpty()){
-                            FirebaseUsuario firebaseUsuario = new FirebaseUsuario(getApplicationContext());
-                            firebaseUsuario.buscarUsuarioEmail(campoEmail.getText().toString());
+                            FirebaseContato firebaseContato = new FirebaseContato(getApplicationContext());
+                            firebaseContato.cadastroContato(campoEmail.getText().toString());
                         }
 
                     }
